@@ -23,8 +23,7 @@ namespace AccioVegialis.Data.Models
             this.MyRecipes = new HashSet<Recipes>();
             this.FavoriteRecipes = new HashSet<Recipes>();
         }
-        [Required]
-        public string Name { get; set; }
+       
         public virtual ICollection<Vegetables> FavoriteVeggies { get; set; }
         public virtual ICollection<Recipes> MyRecipes { get; set; }
         public virtual ICollection<Recipes> FavoriteRecipes { get; set; }
