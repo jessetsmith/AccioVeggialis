@@ -1,0 +1,88 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration;
+using System.Data.Entity.ModelConfiguration.Conventions;
+using System.Security.Claims;
+using System.Security.Cryptography.X509Certificates;
+using System.Threading.Tasks;
+using AccioVegialis.Data;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity.Owin;
+
+namespace AccioVegialis.Data.Models
+{
+    // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
+    public class ApplicationUser : IdentityUser
+    {
+        public ApplicationUser()
+        {
+            this.FavoriteVeggies = new HashSet<Vegetables>();
+            this.MyRecipes = new HashSet<Recipes>();
+            this.FavoriteRecipes = new HashSet<Recipes>();
+        }
+        public string Name { get; set; }
+        public virtual ICollection<Vegetables> FavoriteVeggies { get; set; }
+        public virtual ICollection<Recipes> MyRecipes { get; set; }
+        public virtual ICollection<Recipes> FavoriteRecipes { get; set; }
+
+
+        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager, string authenticationType)
+        {
+            // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
+            var userIdentity = await manager.CreateIdentityAsync(this, authenticationType);
+            // Add custom user claims here
+            
+            return userIdentity;
+        }
+    }
+
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    {
+        public ApplicationDbContext()
+            : base("DefaultConnection", throwIfV1Schema: false)
+        {
+        }
+        
+        public static ApplicationDbContext Create()
+        {
+            return new ApplicationDbContext();
+
+         }
+
+        public DbSet<Recipes> Recipes { get; set; }
+        //public DbSet<RecipeComments> RecipeComments { get; set; }
+        public DbSet<Vegetables> Vegetables { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder
+                .Conventions
+                .Remove<PluralizingTableNameConvention>();
+
+            modelBuilder
+                .Configurations
+                .Add(new IdentityUserLoginConfiguration())
+                .Add(new IdentityUserRoleConfiguration());
+        }
+
+        public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
+        {
+            public IdentityUserLoginConfiguration()
+            {
+                HasKey(iul => iul.UserId);
+            }
+        }
+
+        public class IdentityUserRoleConfiguration : EntityTypeConfiguration<IdentityUserRole>
+        {
+            public IdentityUserRoleConfiguration()
+            {
+                HasKey(iur => iur.UserId);
+            }
+        }
+
+
+    }
+}
