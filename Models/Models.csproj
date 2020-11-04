@@ -43,6 +43,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VegCreate.cs" />
+    <Compile Include="VegEdit.cs" />
+    <Compile Include="VegListItem.cs" />
     <Compile Include="RecipeCreate.cs" />
     <Compile Include="RecipeDetail.cs" />
     <Compile Include="RecipeEdit.cs" />
