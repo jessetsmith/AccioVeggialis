@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
 using System.Data.Entity.ModelConfiguration.Conventions;
@@ -22,7 +23,7 @@ namespace AccioVegialis.Data.Models
             this.MyRecipes = new HashSet<Recipes>();
             this.FavoriteRecipes = new HashSet<Recipes>();
         }
-        public string Name { get; set; }
+       
         public virtual ICollection<Vegetables> FavoriteVeggies { get; set; }
         public virtual ICollection<Recipes> MyRecipes { get; set; }
         public virtual ICollection<Recipes> FavoriteRecipes { get; set; }

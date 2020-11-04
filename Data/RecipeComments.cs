@@ -13,12 +13,12 @@ namespace AccioVegialis.Data
     {
         [Key]
         public int CommentID { get; set; }
-
+        //[Required]
         [ForeignKey(nameof(RecipeID))]
         public virtual Recipes Recipe { get; set; }
         public int RecipeID {get; set; }
 
-        [Required]
+        //[Required]
         [ForeignKey(nameof(UserID))]
         public virtual ApplicationUser Author { get; set; }
         public int UserID { get; set; }
