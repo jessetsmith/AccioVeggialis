@@ -16,7 +16,7 @@ namespace AccioVegialis.Data
             //this.Comments = new HashSet<RecipeComments>();
             this.FavoritedBy = new HashSet<ApplicationUser>();
         }
-        // [ForeignKey(nameof(User))]
+       
         [Key]
         public int RecipeID { get; set; }
         [Required]
@@ -28,7 +28,7 @@ namespace AccioVegialis.Data
         public virtual ICollection<Vegetables> Ingredients { get; set; }
         [Required]
         public string RecipeText { get; set; }
-        //public virtual ICollection<Recipemments> Comments { get; set; }
+        //public virtual ICollection<RecipeComments> Comments { get; set; }
         public virtual ICollection<ApplicationUser> FavoritedBy { get; set; }
         [Required]
         public DateTimeOffset CreatedUTC { get; set; }
