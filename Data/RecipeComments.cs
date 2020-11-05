@@ -18,7 +18,6 @@ namespace AccioVegialis.Data
         public virtual Recipes Recipe { get; set; }
         public int RecipeID {get; set; }
 
-        //[Required]
         [ForeignKey(nameof(UserID))]
         public virtual ApplicationUser Author { get; set; }
         public int UserID { get; set; }
@@ -31,7 +30,7 @@ namespace AccioVegialis.Data
         public DateTimeOffset? ModifiedUtc { get; set; }
 
         public bool IsReply { get; set; }
-
+        //[Required]
         [ForeignKey(nameof(UserID))]
         public virtual ApplicationUser ReplyTo { get; set; }
   

@@ -13,7 +13,7 @@ namespace AccioVegialis.Data
         public Recipes() 
         {
             this.Ingredients = new HashSet<Vegetables>();
-            //this.Comments = new HashSet<RecipeComments>();
+            this.Comments = new HashSet<RecipeComments>();
             this.FavoritedBy = new HashSet<ApplicationUser>();
         }
        
