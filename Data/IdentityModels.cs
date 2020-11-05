@@ -53,7 +53,7 @@ namespace AccioVegialis.Data.Models
          }
 
         public DbSet<Recipes> Recipes { get; set; }
-       public DbSet<RecipeComments> RecipeComments { get; set; }
+        public DbSet<RecipeComments> RecipeComments { get; set; }
         public DbSet<Vegetables> Vegetables { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

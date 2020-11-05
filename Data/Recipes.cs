@@ -16,23 +16,22 @@ namespace AccioVegialis.Data
             this.Comments = new HashSet<RecipeComments>();
             this.FavoritedBy = new HashSet<ApplicationUser>();
         }
-        // [ForeignKey(nameof(User))]
+       
         [Key]
         public int RecipeID { get; set; }
         [Required]
         public string Title { get; set; }
         [Required]
-        [ForeignKey(nameof(UserName))]
+        [ForeignKey(nameof(UserID))]
         public virtual ApplicationUser Author { get; set; }
-        public string UserName { get; set; }
+        public string UserID { get; set; }
         public virtual ICollection<Vegetables> Ingredients { get; set; }
         [Required]
         public string RecipeText { get; set; }
-        public virtual ICollection<Recipecomments> Comments { get; set; }
+        public virtual ICollection<RecipeComments> Comments { get; set; }
         public virtual ICollection<ApplicationUser> FavoritedBy { get; set; }
         [Required]
         public DateTimeOffset CreatedUTC { get; set; }
         public DateTimeOffset? ModifiedUTC { get; set; }//?Do we need this for sure?
-        public Guid OwnerID { get; set; }
     }
 }
