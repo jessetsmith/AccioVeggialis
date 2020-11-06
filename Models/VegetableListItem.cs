@@ -5,7 +5,7 @@ using System.Text;
 
 namespace AccioVegialis.Models
 {
-    public class VegListItem
+    public class VegetableListItem
     {
         public int VegetableID { get; set; }
         public string Title { get; set; }
