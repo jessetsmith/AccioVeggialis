@@ -5,7 +5,7 @@ using System.Text;
 
 namespace AccioVegialis.Models
 {
-    public class VegCreate
+    public class VegetableCreate
     {
         [Required]
         [MinLength(5, ErrorMessage = "Please enter at least 5 characters for the Title.")]
