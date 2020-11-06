@@ -15,5 +15,7 @@ namespace Models
         public string Description { get; set; }
         public virtual ICollection<Recipes> RelatedRecipes { get; set; }
         public virtual ICollection<ApplicationUser> FavoritedBy { get; set; }
+        public DateTimeOffset CreatedUTC { get; set; }
+        public DateTimeOffset? ModifiedUTC { get; set; }//?Do we need this for sure?
     }
 }

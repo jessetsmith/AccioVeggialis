@@ -13,9 +13,9 @@ namespace Models
         public string CommentText { get; set; }
         //public bool IsReply { get; set; }
         [Display(Name = "Created")]
-        public DateTimeOffset CreatedUtc { get; set; }
+        public DateTimeOffset CreatedUTC{ get; set; }
         [Display(Name = "Modified")]
-        public DateTimeOffset? ModifiedUtc { get; set; }
+        public DateTimeOffset? ModifiedUTC { get; set; }
 
     }
 }
