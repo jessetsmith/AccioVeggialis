@@ -1,5 +1,7 @@
 ﻿using AccioVegialis.Data;
+using AccioVegialis.Models;
 using Microsoft.AspNet.Identity;
+using Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,8 +16,7 @@ namespace WebAPI.Controllers
     {
         private VegetableService CreateVegetableService()
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var vegetableService = new VegetableService(userId);
+            var vegetableService = new VegetableService();
             return vegetableService;
         }
         public IHttpActionResult Get()
@@ -44,7 +45,7 @@ namespace WebAPI.Controllers
 
             var service = CreateVegetableService();
 
-            if (!service.UpdateVegetable(vegetable))
+            if (!service.UpdateVeggie(vegetable))
                 return InternalServerError();
 
             return Ok();

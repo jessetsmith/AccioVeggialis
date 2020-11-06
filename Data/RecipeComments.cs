@@ -20,14 +20,14 @@ namespace AccioVegialis.Data
 
         [ForeignKey(nameof(UserID))]
         public virtual ApplicationUser Author { get; set; }
-        public string UserID { get; set; }
+        public virtual string UserID { get; set; }
 
         [Required]
         public string CommentText { get; set; }
 
-        public DateTimeOffset CreatedUtc { get; set; }
+        public DateTimeOffset CreatedUTC { get; set; }
 
-        public DateTimeOffset? ModifiedUtc { get; set; }
+        public DateTimeOffset? ModifiedUTC { get; set; }
 
         //public bool IsReply { get; set; }
 
