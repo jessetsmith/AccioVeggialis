@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using Models;
+using Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -12,7 +15,7 @@ namespace WebAPI.Controllers
     {
         private RecipeService CreateRecipeService()
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
+            var userId = User.Identity.GetUserId();
             var recipeService = new RecipeService(userId);
             return recipeService;
         }
@@ -33,10 +36,10 @@ namespace WebAPI.Controllers
         public IHttpActionResult Get(int id)
         {
             RecipeService RecipeService = CreateRecipeService();
-            var recipes = RecipeService.GetRecipeById(id);
+            var recipes = RecipeService.GetRecipeByID(id);
             return Ok(recipes);
         }
-        public IHttpActionResult Put(RecipeEdit note)
+        public IHttpActionResult Put(RecipeEdit recipe)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
