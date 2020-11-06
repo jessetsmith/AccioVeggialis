@@ -312,6 +312,14 @@
       <Project>{4835E318-BDC6-43B8-AE3D-77B584A330C7}</Project>
       <Name>Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{df39e49e-983a-4610-b4d5-5cff14eba2c7}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Services\Services.csproj">
+      <Project>{c88275b8-d9c6-4ce6-86a9-72bb1652738c}</Project>
+      <Name>Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

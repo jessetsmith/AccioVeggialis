@@ -24,7 +24,7 @@ namespace AccioVegialis.Data
         [Required]
         [ForeignKey(nameof(UserID))]
         public virtual ApplicationUser Author { get; set; }
-        public string UserID { get; set; }
+        public virtual string UserID { get; set; }
         public virtual ICollection<Vegetables> Ingredients { get; set; }
         [Required]
         public string RecipeText { get; set; }

@@ -33,7 +33,6 @@ namespace AccioVegialis.Data
 
         //[ForeignKey(nameof(UserID))]
         //public virtual ApplicationUser ReplyTo { get; set; }
- 
     }
 
 }

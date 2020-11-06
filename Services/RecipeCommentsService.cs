@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Services
 {
-    class RecipeCommentsServuce
+    class RecipeCommentsService
     {
         private readonly Guid _userID;
 
-        public RecipeCommentsServuce(Guid userID)
+        public RecipeCommentsService(Guid userID)
         {
             _userID = userID;
         }
