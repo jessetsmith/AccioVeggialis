@@ -49,8 +49,8 @@ namespace Services
                         new RecipeCommentsListItem
                         {
                             CommentID = e.CommentID,
-                            CommentText = e.CommentText,
-                            CreatedUtc = e.CreatedUTC
+                            Author = e.Author,
+                            CreatedUTC = e.CreatedUTC
                         });
                 return query.ToArray();
             }

@@ -51,6 +51,7 @@ namespace Services
                         {
                             RecipeID = e.RecipeID,
                             Title = e.Title,
+                            Author = e.Author,
                             CreatedUTC = e.CreatedUTC
                         });
                 return query.ToArray();
