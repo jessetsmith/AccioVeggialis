@@ -14,9 +14,9 @@ namespace Models
         [Required]
         public string Title { get; set; }
         [Required]
+        public virtual ICollection<Vegetables> Ingredients { get; set; }
+        [Required]
         [MinLength(2, ErrorMessage = "Please enter at least 2 characters.")]
         public string RecipeText { get; set; }
-        [Required]
-        public virtual ICollection<Vegetables> Ingredients { get; set; }
     }
 }

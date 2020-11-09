@@ -10,6 +10,6 @@ namespace Models
     {
         public int CommentID { get; set; }
         public string CommentText { get; set; }
-        
+
     }
 }
