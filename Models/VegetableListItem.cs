@@ -10,6 +10,6 @@ namespace AccioVegialis.Models
         public int VegetableID { get; set; }
         public string Title { get; set; }
         [Display(Name ="Added on")]
-        public DateTimeOffset CreatedUtc { get; set; }
+        public DateTimeOffset CreatedUTC { get; set; }
     }
 }
