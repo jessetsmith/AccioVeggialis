@@ -33,20 +33,22 @@ namespace WebAPI.Controllers
 
             return Ok();
         }
+
+
         public IHttpActionResult Get(int id)
         {
             RecipeService RecipeService = CreateRecipeService();
             var recipes = RecipeService.GetRecipeByID(id);
             return Ok(recipes);
         }
-        public IHttpActionResult Put(RecipeEdit recipe)
+        public IHttpActionResult Put(RecipeEdit recipe, int id)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
             var service = CreateRecipeService();
 
-            if (!service.UpdateRecipe(recipe))
+            if (!service.UpdateRecipe(recipe, id))
                 return InternalServerError();
 
             return Ok();

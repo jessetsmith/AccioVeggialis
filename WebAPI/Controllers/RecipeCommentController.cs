@@ -19,6 +19,7 @@ namespace WebAPI.Controllers
             //var userID = Guid.Parse(User.Identity.GetUserId());
             //var UserID = int.Parse(User.Identity.GetUserId());
             var UserID = User.Identity.GetUserId();
+                
             var recipeCommentService = new RecipeCommentsService(UserID);
             return recipeCommentService;
         }

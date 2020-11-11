@@ -12,10 +12,11 @@ namespace Services
 {
     public class VegetableService
     {
-        private readonly int _veggieID;
+        //private readonly int _veggieID;
 
         public VegetableService()
         {
+            //_veggieID = veggieID;
         }
 
         public bool CreateVegetable(VegetableCreate model)
@@ -41,13 +42,14 @@ namespace Services
                 var query =
                     ctx
                     .Vegetables
-                    .Where(e => e.VegetableID == _veggieID)
+                    //.Where(e => e.VegetableID == _veggieID)
                     .Select(
                         e =>
                         new VegetableListItem
                         {
                             VegetableID = e.VegetableID,
-                            Title = e.Title                        });
+                            Title = e.Title                        
+                        });
                 return query.ToArray();
             }
         }
@@ -66,24 +68,24 @@ namespace Services
                         VegetableID = entity.VegetableID,
                         Title = entity.Title,
                         Description = entity.Description,
-                        RelatedRecipes = entity.RelatedRecipes,
+                        //RelatedRecipes = entity.RelatedRecipes,
                         CreatedUTC = entity.CreatedUTC
                     };
             }
         }
 
-        public bool UpdateVeggie(VegetableEdit model)
+        public bool UpdateVeggie(VegetableEdit model, int veggieID)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                     .Vegetables
-                    .Single(e => e.VegetableID == model.VegetableID);
+                    .Single(e => e.VegetableID == veggieID);
 
                 entity.Title = model.Title;
                 entity.Description = model.Description;
-                entity.RelatedRecipes = model.RelatedRecipes;
+                //entity.RelatedRecipes = model.RelatedRecipes;
                 entity.ModifiedUTC = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;

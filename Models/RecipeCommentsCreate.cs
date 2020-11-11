@@ -9,6 +9,8 @@ namespace Models
 {
     public class RecipeCommentsCreate
     {
+        //[Required]
+        //public int RecipeID { get; set; }
         [Required]        
         [MaxLength(800, ErrorMessage = "There are too many characters in this field.")]
         

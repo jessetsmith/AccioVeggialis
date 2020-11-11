@@ -16,6 +16,7 @@ namespace WebAPI.Controllers
     {
         private VegetableService CreateVegetableService()
         {
+           
             var vegetableService = new VegetableService();
             return vegetableService;
         }
@@ -38,14 +39,14 @@ namespace WebAPI.Controllers
             return Ok();
         }
 
-        public IHttpActionResult Put(VegetableEdit vegetable)
+        public IHttpActionResult Put(VegetableEdit vegetable, int id)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
             var service = CreateVegetableService();
 
-            if (!service.UpdateVeggie(vegetable))
+            if (!service.UpdateVeggie(vegetable, id))
                 return InternalServerError();
 
             return Ok();
