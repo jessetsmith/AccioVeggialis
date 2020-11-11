@@ -9,8 +9,8 @@ namespace AccioVegialis.Data
     public class Vegetables    {
         public Vegetables()
         {
-            this.RelatedRecipes = new HashSet<Recipes>();
-            this.FavoritedBy = new HashSet<ApplicationUser>();
+            //this.RelatedRecipes = new HashSet<Recipes>();
+            //this.FavoritedBy = new HashSet<ApplicationUser>();
         }
         [Key]
         public int VegetableID { get; set; }
@@ -18,8 +18,8 @@ namespace AccioVegialis.Data
         public string Title { get; set; }
         [Required]
         public string Description { get; set; }
-        public virtual ICollection<Recipes> RelatedRecipes { get; set; }
-        public virtual ICollection<ApplicationUser> FavoritedBy { get; set; }
+        //public virtual ICollection<Recipes> RelatedRecipes { get; set; }
+        //public virtual ICollection<ApplicationUser> FavoritedBy { get; set; }
         public DateTimeOffset CreatedUTC { get; set; }
         public DateTimeOffset? ModifiedUTC { get; set; }//?Do we need this for sure?
     }

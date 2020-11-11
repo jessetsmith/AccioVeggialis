@@ -33,7 +33,9 @@ namespace Services
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.Recipes.Add(entity);
+
                 return ctx.SaveChanges() == 1;
+
             }
         }
 
@@ -79,14 +81,14 @@ namespace Services
             }
         }
 
-        public bool UpdateRecipe(RecipeEdit model)
+        public bool UpdateRecipe(RecipeEdit model, int recipeID)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                     .Recipes
-                    .Single(e => e.RecipeID == model.RecipeID && e.UserID == _userID);
+                    .Single(e => e.RecipeID == recipeID && e.UserID == _userID);
 
                 entity.Title = model.Title;
                 entity.RecipeText = model.RecipeText;

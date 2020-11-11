@@ -21,11 +21,11 @@ namespace AccioVegialis.Data
         public int RecipeID { get; set; }
         [Required]
         public string Title { get; set; }
-        [Required]
+        //[Required]
         [ForeignKey(nameof(UserID))]
         public virtual ApplicationUser Author { get; set; }
-        public virtual string UserID { get; set; }
-        [Required]
+        public string UserID { get; set; }
+        //[Required]
         public virtual ICollection<Vegetables> Ingredients { get; set; }
         [Required]
         public string RecipeText { get; set; }
