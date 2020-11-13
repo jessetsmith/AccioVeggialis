@@ -76,19 +76,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202011050002152_Fixing Comments.cs" />
-    <Compile Include="Migrations\202011050002152_Fixing Comments.Designer.cs">
-      <DependentUpon>202011050002152_Fixing Comments.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011092347406_Updates.cs" />
-    <Compile Include="Migrations\202011092347406_Updates.Designer.cs">
-      <DependentUpon>202011092347406_Updates.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011110226252_Update Tables.cs" />
-    <Compile Include="Migrations\202011110226252_Update Tables.Designer.cs">
-      <DependentUpon>202011110226252_Update Tables.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RecipeComments.cs" />
     <Compile Include="Recipes.cs" />
@@ -97,17 +84,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202011050002152_Fixing Comments.resx">
-      <DependentUpon>202011050002152_Fixing Comments.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011092347406_Updates.resx">
-      <DependentUpon>202011092347406_Updates.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011110226252_Update Tables.resx">
-      <DependentUpon>202011110226252_Update Tables.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
