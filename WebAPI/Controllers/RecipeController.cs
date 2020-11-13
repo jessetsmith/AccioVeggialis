@@ -34,6 +34,12 @@ namespace WebAPI.Controllers
             return Ok();
         }
 
+        public IHttpActionResult Get()
+        {
+            RecipeService recipeService = CreateRecipeService();
+            var recipes = recipeService.GetRecipes();
+            return Ok(recipes);
+        }
 
         public IHttpActionResult Get(int id)
         {

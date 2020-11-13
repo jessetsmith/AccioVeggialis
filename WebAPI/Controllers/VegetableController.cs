@@ -26,6 +26,14 @@ namespace WebAPI.Controllers
             var vegetables = vegetableService.GetVegetables();
             return Ok(vegetables);
         }
+
+        public IHttpActionResult Get(int id)
+        {
+            VegetableService vegetableService = CreateVegetableService();
+            var vegetables = vegetableService.GetVeggiesByID(id);
+            return Ok(vegetables);
+        }
+
         public IHttpActionResult Post(VegetableCreate vegetable)
         {
             if (!ModelState.IsValid)
