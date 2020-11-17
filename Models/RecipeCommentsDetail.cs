@@ -11,7 +11,7 @@ namespace Models
     public class RecipeCommentsDetail
     {
         public int CommentID { get; set; }
-        public virtual ApplicationUser Author { get; set; }
+        public string Author { get; set; }
         public string CommentText { get; set; }
         [Display(Name = "Created")]
         public DateTimeOffset CreatedUTC{ get; set; }

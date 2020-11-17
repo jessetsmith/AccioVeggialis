@@ -1,5 +1,6 @@
 ﻿using Microsoft.Ajax.Utilities;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Models;
 using Services;
 using System;
@@ -16,11 +17,9 @@ namespace WebAPI.Controllers
     {
         private RecipeCommentsService CreateRecipeCommentService()
         {
-            //var userID = Guid.Parse(User.Identity.GetUserId());
-            //var UserID = int.Parse(User.Identity.GetUserId());
-            var UserID = User.Identity.GetUserId();
-                
-            var recipeCommentService = new RecipeCommentsService(UserID);
+            var userID = User.Identity.GetUserId();
+
+            var recipeCommentService = new RecipeCommentsService(userID);
             return recipeCommentService;
         }
 
@@ -31,14 +30,20 @@ namespace WebAPI.Controllers
             return Ok(recipeComments);
         }
 
-        public IHttpActionResult Post(RecipeCommentsCreate recipeComment)
+        public IHttpActionResult Post(RecipeCommentsCreate recipeComment, int recipeID)
         {
+            var userID = User.Identity.GetUserId();
+
+            RecipeService recipeService = new RecipeService(userID);
+            int id = recipeService.GetRecipeByID(recipeID).RecipeID;
+
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
+            //var recipeID = recipeCommentService.GetCommentByID(id).Author;
             var service = CreateRecipeCommentService();
 
-            if (!service.CreateComment(recipeComment))
+            if (!service.CreateComment(recipeComment, id))
                 return InternalServerError();
 
             return Ok();
@@ -50,14 +55,14 @@ namespace WebAPI.Controllers
             var recipeComment = recipeCommentService.GetCommentByID(id);
             return Ok(recipeComment);
         }
-        public IHttpActionResult Put(RecipeCommentsEdit recipeComment)
+        public IHttpActionResult Put(RecipeCommentsEdit recipeComment, int id)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
             var service = CreateRecipeCommentService();
 
-            if (!service.UpdateComment(recipeComment))
+            if (!service.UpdateComment(recipeComment, id))
                 return InternalServerError();
 
             return Ok();

@@ -15,7 +15,7 @@ namespace Models
         public int RecipeID { get; set; }
         public string Title { get; set; }
 
-        public virtual ApplicationUser Author { get; set; }
+        public string Author { get; set; }
 
         //public string RecipeText { get; set; }
 

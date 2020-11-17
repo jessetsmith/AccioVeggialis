@@ -8,7 +8,7 @@ namespace AccioVegialis.Models
     public class VegetableCreate
     {
         [Required]
-        [MinLength(5, ErrorMessage = "Please enter at least 5 characters for the Title.")]
+        [MinLength(2, ErrorMessage = "Please enter at least 2 characters for the Title.")]
         [MaxLength(50, ErrorMessage = "There are too many characters in this field.")]
         public string Title { get; set; }
         [MaxLength(1000)]
