@@ -12,6 +12,7 @@ namespace Services
     public class RecipeService
     {
         private readonly string _userID;
+        private ApplicationUser _user;
 
         public RecipeService(string userID)
         {
@@ -20,17 +21,22 @@ namespace Services
 
         public bool CreateRecipe(RecipeCreate model)
         {
+            var ctx = new ApplicationDbContext();
+            var user = ctx.Users.Find(_userID);
+            _user = user;
+
             var entity =
                 new Recipes()
                 {
                     Title = model.Title,
                     UserID = _userID,
+                    Author = _user,
                     Ingredients = model.Ingredients,
                     RecipeText = model.RecipeText,
                     CreatedUTC = DateTimeOffset.Now
                 };
 
-            using (var ctx = new ApplicationDbContext())
+            using (ctx)
             {
                 ctx.Recipes.Add(entity);
 
@@ -46,14 +52,15 @@ namespace Services
                 var query =
                     ctx
                     .Recipes
-                    .Where(e => e.UserID == _userID)
+                    //.Where(e => e.UserID == _userID)
                     .Select(
                         e =>
                         new RecipeListItem
                         {
                             RecipeID = e.RecipeID,
                             Title = e.Title,
-                            Author = e.Author,
+                            Author = e.Author.UserName,
+                            Ingredients = e.Ingredients,
                             CreatedUTC = e.CreatedUTC
                         });
                 return query.ToArray();
@@ -64,17 +71,22 @@ namespace Services
         {
             using (var ctx = new ApplicationDbContext())
             {
+                var recipeCommentService = new RecipeCommentsService(_userID);
+                var comments = recipeCommentService.GetCommentsByRecipeID(id);
+
                 var entity =
                     ctx
                     .Recipes
-                    .Single(e => e.RecipeID == id && e.UserID == _userID);
+                    .Single(e => e.RecipeID == id);
                 return
                     new RecipeDetail
                     {
                         RecipeID = entity.RecipeID,
                         Title = entity.Title,
+                        Author = entity.Author.UserName,
                         RecipeText = entity.RecipeText,
                         Ingredients = entity.Ingredients,
+                        Comments = comments,
                         CreatedUTC = entity.CreatedUTC,
                         ModifiedUTC = entity.ModifiedUTC
                     };
@@ -92,6 +104,7 @@ namespace Services
 
                 entity.Title = model.Title;
                 entity.RecipeText = model.RecipeText;
+                entity.Ingredients.Clear();
                 entity.Ingredients = model.Ingredients;
                 entity.ModifiedUTC = DateTimeOffset.UtcNow;
 
@@ -107,9 +120,9 @@ namespace Services
                     ctx
                     .Recipes
                     .Single(e => e.RecipeID == recipeID && e.UserID == _userID);
-
+               
+                entity.Ingredients.Clear();
                 ctx.Recipes.Remove(entity);
-
                 return ctx.SaveChanges() == 1;
             }
 

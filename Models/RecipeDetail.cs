@@ -13,11 +13,14 @@ namespace Models
     {
         public int RecipeID { get; set; }
         public string Title { get; set; }
+
+        public string Author { get; set; }
         public string RecipeText { get; set; }
 
         public virtual ICollection<ApplicationUser> FavoritedBy { get; set; }
         public virtual ICollection<Vegetables> Ingredients { get; set; }
-        public virtual ICollection<RecipeComments> Comments { get; set; }
+        public virtual ICollection<RecipeCommentsDetail> Comments { get; set; }
+
         [Display(Name = "Created")]
         public DateTimeOffset CreatedUTC { get; set; }
         [Display(Name = "Created")]
