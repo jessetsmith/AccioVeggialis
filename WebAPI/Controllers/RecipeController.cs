@@ -31,7 +31,7 @@ namespace WebAPI.Controllers
             if (!service.CreateRecipe(recipe))
                 return InternalServerError();
 
-            return Ok();
+            return Ok(recipe);
         }
 
         public IHttpActionResult Get()
@@ -57,7 +57,7 @@ namespace WebAPI.Controllers
             if (!service.UpdateRecipe(recipe, id))
                 return InternalServerError();
 
-            return Ok();
+            return Ok(recipe);
         }
         public IHttpActionResult Delete(int id)
         {
@@ -66,7 +66,7 @@ namespace WebAPI.Controllers
             if (!service.DeleteRecipe(id))
                 return InternalServerError();
 
-            return Ok();
+            return Ok(id);
         }
     }
 }

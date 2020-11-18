@@ -44,7 +44,7 @@ namespace WebAPI.Controllers
             if (!service.CreateVegetable(vegetable))
                 return InternalServerError();
 
-            return Ok();
+            return Ok(vegetable);
         }
 
         public IHttpActionResult Put(VegetableEdit vegetable, int id)
@@ -57,7 +57,7 @@ namespace WebAPI.Controllers
             if (!service.UpdateVeggie(vegetable, id))
                 return InternalServerError();
 
-            return Ok();
+            return Ok(vegetable);
         }
         public IHttpActionResult Delete(int id)
         {
@@ -66,7 +66,7 @@ namespace WebAPI.Controllers
             if (!service.DeleteVegetable(id))
                 return InternalServerError();
 
-            return Ok();
+            return Ok(id);
         }
     }
 }
