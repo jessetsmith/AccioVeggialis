@@ -13,30 +13,26 @@ namespace AccioVegialis.Data
     {
         [Key]
         public int CommentID { get; set; }
-
+        //[Required]
         [ForeignKey(nameof(RecipeID))]
         public virtual Recipes Recipe { get; set; }
-        public int RecipeID {get; set; }
+        public virtual int RecipeID {get; set; }
 
-        [Required]
         [ForeignKey(nameof(UserID))]
         public virtual ApplicationUser Author { get; set; }
-        public int UserID { get; set; }
+        public virtual string UserID { get; set; }
 
         [Required]
         public string CommentText { get; set; }
 
-        public DateTimeOffset CreatedUtc { get; set; }
+        public DateTimeOffset CreatedUTC { get; set; }
 
-        public DateTimeOffset? ModifiedUtc { get; set; }
+        public DateTimeOffset? ModifiedUTC { get; set; }
 
-        public bool IsReply { get; set; }
+        //public bool IsReply { get; set; }
 
-        [ForeignKey(nameof(UserID))]
-        public virtual ApplicationUser ReplyTo { get; set; }
-  
-        public Guid OwnerID { get; set; }
-
+        //[ForeignKey(nameof(UserID))]
+        //public virtual ApplicationUser ReplyTo { get; set; }
     }
 
 }

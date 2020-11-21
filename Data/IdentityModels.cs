@@ -23,7 +23,7 @@ namespace AccioVegialis.Data.Models
             this.MyRecipes = new HashSet<Recipes>();
             this.FavoriteRecipes = new HashSet<Recipes>();
         }
-       
+
         public virtual ICollection<Vegetables> FavoriteVeggies { get; set; }
         public virtual ICollection<Recipes> MyRecipes { get; set; }
         public virtual ICollection<Recipes> FavoriteRecipes { get; set; }
@@ -33,7 +33,7 @@ namespace AccioVegialis.Data.Models
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
             var userIdentity = await manager.CreateIdentityAsync(this, authenticationType);
-            // Add custom user claims here
+             //Add custom user claims here
             
             return userIdentity;
         }
@@ -53,7 +53,7 @@ namespace AccioVegialis.Data.Models
          }
 
         public DbSet<Recipes> Recipes { get; set; }
-        //public DbSet<RecipeComments> RecipeComments { get; set; }
+        public DbSet<RecipeComments> RecipeComments { get; set; }
         public DbSet<Vegetables> Vegetables { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

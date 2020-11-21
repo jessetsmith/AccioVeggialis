@@ -76,17 +76,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202011030058131_First Migration.cs" />
-    <Compile Include="Migrations\202011030058131_First Migration.Designer.cs">
-      <DependentUpon>202011030058131_First Migration.cs</DependentUpon>
+    <Compile Include="Migrations\202011130104010_rebuild database.cs" />
+    <Compile Include="Migrations\202011130104010_rebuild database.Designer.cs">
+      <DependentUpon>202011130104010_rebuild database.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202011030138036_made name required.cs" />
-    <Compile Include="Migrations\202011030138036_made name required.Designer.cs">
-      <DependentUpon>202011030138036_made name required.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011030142181_Added name to binding model.cs" />
-    <Compile Include="Migrations\202011030142181_Added name to binding model.Designer.cs">
-      <DependentUpon>202011030142181_Added name to binding model.cs</DependentUpon>
+    <Compile Include="Migrations\202011150402205_working on comments.cs" />
+    <Compile Include="Migrations\202011150402205_working on comments.Designer.cs">
+      <DependentUpon>202011150402205_working on comments.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -99,14 +95,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202011030058131_First Migration.resx">
-      <DependentUpon>202011030058131_First Migration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202011130104010_rebuild database.resx">
+      <DependentUpon>202011130104010_rebuild database.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011030138036_made name required.resx">
-      <DependentUpon>202011030138036_made name required.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011030142181_Added name to binding model.resx">
-      <DependentUpon>202011030142181_Added name to binding model.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202011150402205_working on comments.resx">
+      <DependentUpon>202011150402205_working on comments.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
