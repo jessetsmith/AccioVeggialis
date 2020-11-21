@@ -1,3 +1,5 @@
+![AccioVeggialisCover](https://https://github.com/jessetsmith/AccioVeggialis/blob/main/accio-veggialis-cover.png?raw=true)
+
 # Accio Vegialis
 Accio Vegialis is a web api designed to help the user find recipes for their favorite vegetables. Users can also add a recipe and comment. An upcoming version will allow a user to share and favorite their recipes.
 
