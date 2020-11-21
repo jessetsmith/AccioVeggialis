@@ -16,7 +16,7 @@ namespace AccioVegialis.Data
         //[Required]
         [ForeignKey(nameof(RecipeID))]
         public virtual Recipes Recipe { get; set; }
-        public virtual int RecipeID {get; set; }
+        public virtual int? RecipeID {get; set; }
 
         [ForeignKey(nameof(UserID))]
         public virtual ApplicationUser Author { get; set; }
