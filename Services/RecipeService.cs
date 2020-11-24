@@ -72,7 +72,7 @@ namespace Services
             using (var ctx = new ApplicationDbContext())
             {
                 var recipeCommentService = new RecipeCommentsService(_userID);
-                var comments = recipeCommentService.GetCommentsByRecipeID(id);
+                var comments = recipeCommentService.GetCommentDetailsByRecipeID(id);
 
                 var entity =
                     ctx
@@ -112,18 +112,37 @@ namespace Services
             }
         }
 
+        public bool DeleteCommentsOnRecipe(int recipeID)
+        {
+            var ctx = new ApplicationDbContext();
+            var recipeCommentService = new RecipeCommentsService(_userID);
+            var comments = recipeCommentService.GetCommentsByRecipeID(recipeID);
+
+
+            ctx.RecipeComments.Remove(comments);
+            return ctx.SaveChanges() == 1;
+           
+        }
+
         public bool DeleteRecipe(int recipeID)
         {
-            using (var ctx = new ApplicationDbContext())
+            var ctx = new ApplicationDbContext();
+
+
+
+            using (ctx)
             {
                 var entity =
                     ctx
                     .Recipes
                     .Single(e => e.RecipeID == recipeID && e.UserID == _userID);
-               
-                entity.Ingredients.Clear();
-                ctx.Recipes.Remove(entity);
-                return ctx.SaveChanges() == 1;
+
+             
+                    entity.Ingredients.Clear();
+                    entity.Comments.Clear();
+                    
+                    ctx.Recipes.Remove(entity);
+                    return ctx.SaveChanges() == 1;
             }
 
         }

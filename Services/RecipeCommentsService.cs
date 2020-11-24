@@ -80,7 +80,20 @@ namespace Services
             }
         }
 
-        public ICollection<RecipeCommentsDetail> GetCommentsByRecipeID(int id)
+        public RecipeComments GetCommentsByRecipeID(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                     ctx
+                     .RecipeComments
+                     .Single(e => e.RecipeID == id);
+
+                return entity;
+            }
+        }
+
+        public ICollection<RecipeCommentsDetail> GetCommentDetailsByRecipeID(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -110,7 +123,7 @@ namespace Services
                 var entity =
                     ctx
                     .RecipeComments
-                    .Single(e => e.CommentID == id && e.UserID == _userID);
+                    .Single(e => e.CommentID == id);
                 return
                     new RecipeCommentsDetail
                     {
