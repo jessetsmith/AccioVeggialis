@@ -140,7 +140,7 @@ namespace Services
              
                     entity.Ingredients.Clear();
                     entity.Comments.Clear();
-
+                    
                     ctx.Recipes.Remove(entity);
                     return ctx.SaveChanges() == 1;
             }

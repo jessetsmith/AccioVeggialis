@@ -80,13 +80,13 @@
     <Compile Include="Migrations\202011130104010_rebuild database.Designer.cs">
       <DependentUpon>202011130104010_rebuild database.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202011150402205_working on comments.cs" />
-    <Compile Include="Migrations\202011150402205_working on comments.Designer.cs">
-      <DependentUpon>202011150402205_working on comments.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\202011190142412_delete comments on recipes.cs" />
     <Compile Include="Migrations\202011190142412_delete comments on recipes.Designer.cs">
       <DependentUpon>202011190142412_delete comments on recipes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011211531054_working on comments.cs" />
+    <Compile Include="Migrations\202011211531054_working on comments.Designer.cs">
+      <DependentUpon>202011211531054_working on comments.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -102,12 +102,15 @@
     <EmbeddedResource Include="Migrations\202011130104010_rebuild database.resx">
       <DependentUpon>202011130104010_rebuild database.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011150402205_working on comments.resx">
-      <DependentUpon>202011150402205_working on comments.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011190142412_delete comments on recipes.resx">
       <DependentUpon>202011190142412_delete comments on recipes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011211531054_working on comments.resx">
+      <DependentUpon>202011211531054_working on comments.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\accio-veggialis-cover.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
